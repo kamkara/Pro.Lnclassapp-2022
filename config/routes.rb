@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :courses
- 
   resources :citytowns
   resources :schools
   resources :materials
