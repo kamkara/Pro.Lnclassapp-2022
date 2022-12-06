@@ -1,15 +1,46 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<%= turbo_frame_tag "feed_course" do %>
+  <div id="<%= dom_id @course %>" class="mx-auto w-full flex">
+    <div class="mx-auto">
+      <!-- Show course card-->
+      <div class="border m-2">
+        <!-- Course detail-->
+        <div class="border bg-white m-2 p-2">
+          <!-- Course title-->
+          <div class="text-xl p-2">
+            <h1 class="font-bold"><%= @course.title %></h1>
+          </div>
+          <div class="">
+            <%= @course.content %>
+          </div>
 
-    <%= render @course %>
+          <!-- Options-->
+          <div class="flex justify-end my-4 mx-4">
+            <div class="dropdown dropdown-hover">
+              <label tabindex="0" class=" m-1 bg-gray-100 p-1 rounded-full">
+                <span class="badge badge-xs"></span>
+                <span class="badge badge-xs mx-0.5 "></span>
+                <span class="badge badge-xs"></span>
+              </label>
+              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li><%= link_to 'Modifier', edit_course_path(@course) %></li>
+                <li><%= button_to 'Supprimer', course_path(@course), method: :delete %></li>
+              </ul>
+            </div>
 
-    <%= link_to 'Edit this course', edit_course_path(@course), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this course', course_path(@course), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+          </div>
+        </div>
+
+        <!-- Exercises Feed-->
+        <div class="border bg-white m-2">
+      <%= turbo_frame_tag :Add_exercise do %>
+        <%#= link_to 'New Exercise', new_course_exercise_path(@course), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% end %>
+          <%#= render "courses/shared/exercises", course:@course %>
+        </div>
+      </div>
+
     </div>
-    <%= link_to 'Back to courses', courses_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
-</div>
+<% end %>
+
+
