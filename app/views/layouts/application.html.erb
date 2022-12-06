@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= language %>">
   <head>
-    <title>ProLnclassapp</title>
+    <!-- Analytics-->
+    <%#= render "shared/analytics/analytics" %>
+    <!-- Metas-->
+    <title><%= title %></title>
+    <meta name="language" content="<%= language %>">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0 ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="description" content="<%= description %>">
+    <meta name="keywords" content="<%= keywords %>">
+    <meta name="application-name" content="<%= app_name %>">
+    <meta name="theme-color" content="<%= theme_color %>">
+    <meta name="msapplication-TileColor" content="<%= tileColor %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <!-- Favicon-->
+    <%= favicon_link_tag asset_path('favicons/favicon-48x48.ico') %>
+    <%= favicon_link_tag asset_path('favicons/favicon-16x16.png', rel:"icon", type:"image/png", sizes:"32x32") %>
+    <%= favicon_link_tag asset_path('favicons/favicon-32x32.png', rel:"icon", type:"image/png", sizes:"32x32") %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
