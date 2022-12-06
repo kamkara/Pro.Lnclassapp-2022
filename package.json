@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "daisyui": "^2.42.1"
+    "@rails/actiontext": "^7.0.4",
+    "daisyui": "^2.42.1",
+    "trix": "^2.0.3"
   }
 }
