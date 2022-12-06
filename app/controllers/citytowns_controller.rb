@@ -1,4 +1,5 @@
 class CitytownsController < ApplicationController
+   before_action :authenticate_user!
   before_action :set_citytown, only: %i[ show edit update destroy ]
 
   # GET /citytowns or /citytowns.json
@@ -21,11 +22,11 @@ class CitytownsController < ApplicationController
 
   # POST /citytowns or /citytowns.json
   def create
-    @citytown = Citytown.new(citytown_params)
+    @citytown = current_user.citytowns.build(citytown_params)
 
     respond_to do |format|
       if @citytown.save
-        format.html { redirect_to citytown_url(@citytown), notice: "Citytown was successfully created." }
+        format.html { redirect_to setting_path, notice: "Citytown was successfully created." }
         format.json { render :show, status: :created, location: @citytown }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,7 +61,7 @@ class CitytownsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_citytown
-      @citytown = Citytown.find(params[:id])
+      @citytown = Citytown.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

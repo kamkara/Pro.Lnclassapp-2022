@@ -26,7 +26,7 @@
                 <div class="mx-3">
                     <h4 class="text-xl font-semibold text-gray-700"><%= @MaterialList.count %></h4>
                     <div class="text-gray-500 -mx-3">
-                    <%= link_to 'Material', "new-materials", class:"font-semibold no-underline" %>
+                    <%= link_to 'Material', "new-materials", class:"font-semibold no-underline", data:{turbo_frame: "add_new_item"} %>
                     </div>
                 </div>
             </div>
