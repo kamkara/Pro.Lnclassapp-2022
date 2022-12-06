@@ -3,8 +3,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.4"
 
-gem "devise"
-gem "friendly_id"
+
+################################################
+#                   PROJECT GEMS               #
+#################################################
+
+
+####################   MEMBERSHIPS   ###############
+gem 'devise', '~> 4.8', '>= 4.8.1'
+#gem 'devise_invitable', '~> 2.0', '>= 2.0.6'
+#gem 'devise-i18n', '~> 1.10', '>= 1.10.2'
+
+
+####################  FORMS && SLUGGED  #######################
+#gem 'simple_form', '~> 5.1'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
+
+#gem 'platform_sh_rails'
+#gem 'unicorn', '~> 6.1', :group => :production
+#gem "aws-sdk-s3", require: false
+
+
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"

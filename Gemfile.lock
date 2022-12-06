@@ -235,8 +235,8 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  devise
-  friendly_id
+  devise (~> 4.8, >= 4.8.1)
+  friendly_id (~> 5.4, >= 5.4.2)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
