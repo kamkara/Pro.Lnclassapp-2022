@@ -1,0 +1,49 @@
+<%= form_with(model: exercise, url: [@course, exercise], class: "contents") do |form| %>
+    <% if exercise.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+            <h2><%= pluralize(exercise.errors.count, "error") %>
+                prohibited this exercise from being saved:</h2>
+
+            <ul>
+                <% exercise.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="my-5">
+        <%= form.text_field :title, placeholder:"Titre ...", class: "block border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.rich_text_area :content, placeholder:"Contenu du sujet ...", class: "block bg-white border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.rich_text_area :correction, placeholder:"Contenu du corrigé  ...", class: "block bg-white  border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD' class="my-5  border py-4">
+        <template data-nested-form-target='template'>
+            <%#= form.fields_for :questions, Question.new, child_index: 'QUESTION_RECORD' do |question| %>
+                <%#= render 'question_fields', form: question %>
+            <%# end %>
+        </template>
+
+        <%#= form.fields_for :questions do |question| %>
+            <%#= render 'question_fields', form: question %>
+        <%# end %>
+
+        <!-- Add Question button-->
+        <div data-nested-form-target="add_item" class="ml-4">
+            <%#= link_to "Question", "#", data: { action: "nested-form#add_association" },
+        class:"Add-item-exercise bg-blue-600 p-2 text-white " %>
+        </div>
+    </div>
+
+    <div class="inline">
+        <%= form.submit "Créer Exercice", class:" py-3 px-2 bg-blue-600 text-white inline-block font-semibold cursor-pointer" %>
+    </div>
+<% end %>
+

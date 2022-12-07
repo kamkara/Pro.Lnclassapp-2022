@@ -1,0 +1,18 @@
+<div class='nested-fields'>
+    <div class='form-group flex'>
+        <%= form.hidden_field :_destroy %>
+        <div class="flex">
+            <div class="">
+                <%= form.radio_button :correct, checked_value: true, unchecked_value: false  %>
+                <%= form.text_field :name, placeholder: 'Réponse ...', class: '' %>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <small>
+            <%= link_to "Supprimé Reponse", "#", data: { action: "click->nested-form#remove_association" },
+            class:"Add-item-delete bg-gray-200  bg-gray-200 p-2" %>
+
+        </small>
+    </div>
+</div>

@@ -32,10 +32,10 @@
 
         <!-- Exercises Feed-->
         <div class="border bg-white m-2">
-      <%= turbo_frame_tag :Add_exercise do %>
-        <%#= link_to 'New Exercise', new_course_exercise_path(@course), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= turbo_frame_tag "Add_new_exercise" do %>
+        <%= link_to 'New Exercise', new_course_exercise_path(@course), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <% end %>
-          <%#= render "courses/shared/exercises", course:@course %>
+          <%= render "courses/shared/exercises", course:@course %>
         </div>
       </div>
 

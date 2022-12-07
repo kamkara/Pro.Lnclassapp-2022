@@ -1,0 +1,10 @@
+
+
+<%= turbo_frame_tag "Add_exercise"  do %>
+    <div class="mx-auto bg-white p-2 w-full">
+        <h1 class="font-bold text-4xl">Nouvel Exercice</h1>
+        <%= render "form", exercise: @exercise %>
+        <%= link_to 'Annuler', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+
+<% end %>

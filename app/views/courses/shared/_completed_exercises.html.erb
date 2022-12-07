@@ -1,0 +1,32 @@
+<div class="border rounded-md">
+    <div class="bg-gray-100 p-2">
+        <h2 class="font-semibold"><%= question.name %></h2>
+    </div>
+    <div class="flex my-2 gap-6 ">
+        <p class="mx-4 ">Comprit a:
+            <%= question.user_grade(current_user) %></p>
+        <%= link_to "Refait exercice", new_exercice_result_path(question), class: "text-black bg-gray-200 px-2"%>
+    </div>
+</div>
+
+
+<!-- Exercices feed -->
+<% if @course.exercises.empty? %>
+    <div class="p-8">
+        Not Yet Exercise, Add your first Exercise
+        <%= turbo_frame_tag :Add_exercise do %>
+            <%= link_to 'Add Exo', new_course_exercise_path(@course) ,
+            class:"ml-4 bg-blue-600 p-2 px-4 text-white font-semibold " %>
+        <% end %>
+    </div>
+<% else %>
+    <!-- Exercices feed loop -->
+    <% course.exercises.feed_exercise.each do |question| %>
+        <% if question.completed_by(current_user) %>
+            <%= render "courses/shared/completed_exercices", question: question %>
+        <% else %>
+            <%= render "courses/shared/unattempted_exercices", question: question %>
+        <% end %>
+    <% end %>
+<% end %>
+

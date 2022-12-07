@@ -1,17 +1,33 @@
 Rails.application.routes.draw do
-  resources :courses
-  resources :citytowns
-  resources :schools
-  resources :materials
-  resources :levels
   
   
+  ############ Exercises  ###############
+  resources :exercises, only:[:show, :index] do
+    resources :results, only: [:new, :create]
+  end
 
-   #Courses
+  
+  
+  
+  ############ Courses  ###############
+  resources :courses, only:[:show] do
+    resources :exercises, only:[:new, :create, :destroy, :edit, :update]
+  end
+
   get "feed", to:"courses#index"
   get "show-course", to:"courses#show"
   get "new-course", to:"courses#new"
-
+  
+  
+  
+  resources :courses, except:[:index, :new, :show]
+  resources :citytowns, except:[:new]
+  resources :schools, except:[:new]
+  resources :materials, except:[:new]
+  resources :levels, except:[:new]
+  
+  
+  
   #Membership
   get "teacher-sign-up" , to:'membership#teacherUp'
   get "teacher-sign-in" , to:'membership#teacherIn'

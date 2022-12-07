@@ -2,6 +2,10 @@ class Course < ApplicationRecord
   belongs_to :user
   has_rich_text :content
 
+
+  has_many :exercises, class_name: "Exercise", foreign_key: "course_id", dependent: :destroy
+
+  
   ##### STATUS  ########
   STATUS = ["Lune", "Old"]
 

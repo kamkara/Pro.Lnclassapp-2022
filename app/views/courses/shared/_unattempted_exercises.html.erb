@@ -1,0 +1,26 @@
+<div class="border rounded-md mb-1">
+    <%= link_to(new_exercice_result_path(question), class: " text-black") do %>
+        <div class="bg-gray-100 p-2">
+            <h2 class="font-semibold"><%= question.name %></h2>
+        </div>
+        <div class="m-2 text-sm">
+            <p>
+                <%= question.questions.count %>
+                Questions</p>
+        </div>
+    <% end %>
+</div>
+
+
+<div class="border rounded-md mb-1">
+    <%= link_to(new_exercice_result_path(q), class: " text-black") do %>
+        <div class="bg-gray-100 p-2">
+            <h2 class="font-semibold"><%= q.name %></h2>
+        </div>
+        <div class="m-2 text-sm">
+            <p>
+                <%= q.questions.count %>
+                Questions</p>
+        </div>
+    <% end %>
+</div>
