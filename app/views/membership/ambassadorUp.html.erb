@@ -1,0 +1,100 @@
+<% @title="S'Inscription Ambassador" %>
+<div class="container-fluid" >
+	<div class="flex flex-wrap ">
+		<div class="m-auto border border-x-slate-300 ">
+			<div class="my-2 flex justify-center">
+	<h1 class="text-white  text-4xl">
+		<span class="">Ln<span class="ln-logo-decor">class</span></span>
+	</h1>
+</div>
+<div class="flex border-y border-y-slate-300 py-2 px-4 md:-px-32 text-white  justify-center">
+	<div class="">
+		
+		<span class=" ml-4"><%= link_to 'Ambassadeur', "/ambassadeur-sign-up" %></span>
+	</div>
+</div>
+			<div class="px-4 md:px-302 py-8">
+				<h2 class="flex justify-center text-2xl text-white font-bold">Incription Ambassadeur</h2>
+				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+				<%= render "devise/shared/error_messages", resource: resource %>
+				<!-- Error-->
+				<%#= form_error_notification(resource: resource) %>
+				<div class="py-8 pb-2">			
+					<div class="py-8 pb-2">
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-6">
+								<label class="block"><span class="text-white">Nom: </span><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Ex: Konan Yao ...",class:"mt-1 ln-field" %></label>
+							</div>
+						</div>
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-6">
+								<label class="block"><span class="text-white">Prénom: </span><%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"mt-1 ln-field" %></label>
+							</div>
+						</div>
+						
+											
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-2">
+								<span class="text-white ">N° whatsapp ou N° joingnable par appel</span>
+								<%= f.phone_field :contact, placeholder:"Ex: 0584258085", class:"ln-field" %>
+							</div>
+						</div>
+						<div class="py-8 max-w-md">
+						<div class="grid grid-cols-1 gap-2">
+							<span class="text-white ">Nom de votre media</span>
+							<%= f.text_field :media_name, placeholder:"Ex: Facebook groupe prépa Philo", class:"ln-field" %>
+						</div>
+					</div>
+					<div class="py-8 max-w-md">
+						<div class="grid grid-cols-1 gap-2">
+							<span class="text-white">Ville:</span>
+							<%= f.select(:city_name, @citytowns.map{|citytown| [citytown.title]}, { prompt: "Choisir" }, class:"ln-select") %>
+					
+						</div>
+					</div>
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-2">
+								<span class="text-white ">Adresse Email:</span>
+								<%= f.email_field :email, placeholder:"Ex: Lnclass@gmail", class:"ln-field" %>
+							</div>
+						</div>
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-2">
+								<span class="text-white ">Mot de passe:</span>
+								<%= f.password_field :password, placeholder:"Ex: ********", class:"ln-field" %>
+							</div>
+						</div>
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-6 pt-4">
+								<div class="block">
+									<%= f.label :"Je suis :" , class:"text-white" %>
+									<br>
+									<%= f.radio_button :gender, "Femme", id:"fenale", class:"bg-white font-bold" , checked: true %>
+									<label for="fenale" class="text-bold text-white">Une Femme</label>
+									<%= f.radio_button :gender, "Homme",id:"male", class:"bg-white font-bold pl-4" %>
+									<label for="male" class="text-bold text-white">Un Homme</span>
+								</div>
+							</div>
+						</div>
+						<div class="py-8 max-w-md">
+							<div class="grid grid-cols-1 gap-6">
+								<div class="py-8 max-w-md">
+									<div class="grid grid-cols-1 gap-6">
+											<p class="text-white">
+												Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de clicker sur Inscription. 
+											</p>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					
+							<%= f.hidden_field :user_role, value:"Ambassador" %>
+							<div class="pt-4 mt-6">
+								<%= f.submit "Inscription Ambassadeur", class:"ln-button" %>
+							</div>
+						<% end %>
+				</div>
+			</div>
+		</div>
+	</div>

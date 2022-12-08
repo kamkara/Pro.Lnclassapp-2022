@@ -28,7 +28,7 @@ class SchoolsController < ApplicationController
     if @school.save
       respond_to do |format|
         format.html { redirect_to setting_path, notice: "School was successfully created." }
-        format.turb_stream
+        format.turbo_stream
       end
       else
         render :new, status: :unprocessable_entity

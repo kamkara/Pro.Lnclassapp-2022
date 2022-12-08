@@ -1,0 +1,43 @@
+<div class=" ">
+    <% @feed_courses.each do |fc| %>
+        <div class="card border rounded-md m-2">
+            <div class="card-header">
+                <h1 class="font-semibold text-xl p-2">
+                    <%= fc.title %>
+                </h1>
+            </div>
+            <div class="card-body text-normal p-2">
+                <%= link_to course_path(fc)  do %>
+                   <%= truncate(strip_tags(fc.content.to_s.html_safe), length: 400) %>
+                <span class="ln-btn-color hover:ln-btn-hover-color ">Continuer la lecure</span>
+                <% end %>
+            </div>
+
+
+            <div class="flex justify-between border-t">
+                <div  class="flex ml-2 text-md font-semibold">
+                    <%= link_to course_path(fc), class:"flex"  do %>
+                        <%#= course.exercices.count %>
+                        <p class="ml-4 py-2 flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20px" height="20px" class="bg-white rounded-md px-1">
+                                <path d="M22.5,95c-3.584,0-6.5-2.916-6.5-6.5v-73c0-3.584,2.916-6.5,6.5-6.5h41c1.78,0,2.278,1.707,3.5,3	l19.219,18.03C87.366,31.239,88,32.828,88,34.5v54c0,3.584-2.916,6.5-6.5,6.5H22.5z" opacity=".35"/><path fill="#f2f2f2" d="M20.5,93c-3.584,0-6.5-2.916-6.5-6.5v-73C14,9.916,16.916,7,20.5,7h41	c1.78,0,3.502,0.742,4.724,2.035L84.219,28.03C85.366,29.239,86,30.828,86,32.5v54c0,3.584-2.916,6.5-6.5,6.5H20.5z"/><path fill="#d9eeff" d="M20,87V13h40l20,21v53H20z"/><path fill="#40396e" d="M61,15v16c0,1.105,0.895,2,2,2h16l-1-2.653l-15-15.5L61,15z"/><polygon fill="none" stroke="#40396e" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" points="20.5,13.5 61.5,13.5 79.5,32.5 79.5,86.5 20.5,86.5"/><path fill="#70bfff" d="M66.5,48h-17c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h17	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,47.328,67.328,48,66.5,48z"/><path fill="#70bfff" d="M66.5,57h-33c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h33	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,56.328,67.328,57,66.5,57z"/><path fill="#70bfff" d="M66.5,75h-33c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h33	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,74.328,67.328,75,66.5,75z"/><path fill="#70bfff" d="M50.5,66h-17c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h17	c0.828,0,1.5,0.672,1.5,1.5l0,0C52,65.328,51.328,66,50.5,66z"/><path fill="#70bfff" d="M66.5,66h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C68,65.328,67.328,66,66.5,66z"/><path fill="#70bfff" d="M41.5,48h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C43,47.328,42.328,48,41.5,48z"/>
+                            </svg>
+                            <span class=" ml-2">Exercices </span>
+                        </p>
+                    <% end %>
+                </div>
+                <div  class="flex ml-2 text-md font-semibold">
+                    <%= link_to course_path(fc), class:"flex"  do %>
+                        <%#= course.exercices.count %>
+                        <p class="ml-4 py-2 flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20" class="bg-white rounded-md px-1">
+                                <path d="M22.2,2.163a4.992,4.992,0,0,0-4.1-1.081l-3.822.694A4,4,0,0,0,12,3.065,4,4,0,0,0,9.716,1.776L5.9,1.082A5,5,0,0,0,0,6V16.793a5,5,0,0,0,4.105,4.919l6.286,1.143a9,9,0,0,0,3.218,0L19.9,21.712A5,5,0,0,0,24,16.793V6A4.983,4.983,0,0,0,22.2,2.163ZM11,20.928c-.084-.012-.168-.026-.252-.041L4.463,19.745A3,3,0,0,1,2,16.793V6A3,3,0,0,1,5,3a3.081,3.081,0,0,1,.54.049l3.82.7A2,2,0,0,1,11,5.712Zm11-4.135a3,3,0,0,1-2.463,2.952l-6.285,1.142c-.084.015-.168.029-.252.041V5.712a2,2,0,0,1,1.642-1.968l3.821-.7A3,3,0,0,1,22,6Z"/>
+                            </svg>
+                            <span class=" mx-2 mr-4"> Corrections </span>
+                        </p>
+                    <% end %>                        
+                </div>
+            </div>
+        </div>   
+    <% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="mx-4 my-2 px-4 border ">
+    <% @feed_materials.each do |fm| %>
+        <ul class="font-bold my-2 flex">
+            <il class="flex ">
+                <%= link_to "#"  do %>
+                    <p class="flex">
+                    <span class="mx-2">
+                    <% if fm.materialIcon.attached? %>
+                        
+                    <%= image_tag(fm.materialIcon.variant(resize_to_limit: [32, 32]), size: '32') %>
+                    <% end %>
+                    </span>
+                    <span class="mt-2">
+                        <%= fm.title %>
+                    </span>
+                    </p>  <span>
+                <% end %>            
+            </il>
+        </ul>
+    <% end %>
+</div>

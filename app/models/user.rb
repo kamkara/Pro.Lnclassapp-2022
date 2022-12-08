@@ -3,7 +3,26 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-        :trackable,  :authentication_keys => [:logged]
+        :trackable, :authentication_keys => [:logged]
+  attr_writer :logged
+
+  ################## LOGGED  #########
+  #permet la connexion avec le matricule
+  def logged
+    @logged || self.matricule || self.email
+  end
+  
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if (logged = conditions.delete(:logged))
+      where(conditions.to_h).where(["lower(email) = :value OR lower(matricule) = :value", { :value => logged.downcase }]).first
+    elsif conditions.has_key?(:email) || conditions.has_key?(:matricule)
+      where(conditions.to_h).first
+    end
+  end
+  
+  ################## End Logged  #########
+
 
   #RELATIONS
   has_many :levels, class_name: "Level", foreign_key: "user_id", dependent: :destroy
@@ -16,9 +35,8 @@ class User < ApplicationRecord
   has_many :flashes, class_name: "Flash", foreign_key: "user_id", dependent: :destroy
   has_many :anwsers, class_name: "Anwser", foreign_key: "user_id", dependent: :destroy
             
-  attr_writer :logged
-  #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
   
+  #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
   
   ################## VALIDATES  ###############
   before_validation :user_validations?,  on: :create
@@ -31,7 +49,7 @@ class User < ApplicationRecord
    validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
               message: "%{ value} verifier votre nom numéro est 10 chiffres"}
               
-   validates :user_role, inclusion: { in: %w(Student Teacher Team ambassador),
+   validates :user_role, inclusion: { in: %w(Student Teacher Team Ambassador),
                     message: "%{value} acces non identifier" }
 
 
@@ -43,6 +61,7 @@ class User < ApplicationRecord
     else 
       self.email = "#{self.matricule}@gmail.com"
       self.password = "#{self.contact}"
+      
     end    
   end
 
@@ -69,22 +88,5 @@ class User < ApplicationRecord
     self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
     self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
   end
-    
-  ################## LOGGED  #########
-  #permet la connexion avec le matricule
-  def logged
-    @logged || self.matricule || self.email
-  end
-  
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if (logged = conditions.delete(:logged))
-      where(conditions.to_h).where(["lower(matricule) = :value OR lower(email) = :value", { :value => logged.downcase }]).first
-    elsif conditions.has_key?(:matricule) || conditions.has_key?(:email)
-      where(conditions.to_h).first
-    end
-  end
-  
-  ################## End Logged  #########
 
 end

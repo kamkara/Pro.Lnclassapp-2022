@@ -2,13 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+  /* Button*/
+    .ln-btn-color {
+      @apply bg-blue-600 py-1 px-2 rounded-full;
+    }
+  
+    /*Logo decor */
+    .ln-logo-decor {
+      @apply underline decoration-sky-500 decoration-dashed;
+    }
+  
+    /* Form sign in */
+    .ln-signIn-form {
+      @apply pl-11 text-gray-800 pr-11 py-2 rounded-md  block w-full;
+    }
+  
+    .ln-select {
+      @apply block w-full select rounded-none;
+    }
+  
+    .ln-field {
+      @apply mt-1 block w-full;
+    }
+  
+    .ln-sidebar-item {
+      @apply flex items-center text-white px-4 py-2 mt-2 text-xl font-bold;
+    }
+
+    .ln-sidebar-link {
+      @apply px-3 py-2 mt-2 text-lg font-medium rounded-sm;
+    }
+  
+  
+    .ln-button {
+      @apply bg-blue-600 font-bold p-3 px-6 rounded-full mt-2;
+    }
+  
+    .msg-notice {
+      @apply bg-green-300 text-green-900;
+    }
+  
+    .msg-alert {
+      @apply bg-red-300 text-red-900;
+    }
 }
 
-*/
+
 @import 'actiontext.css';

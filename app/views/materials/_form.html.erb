@@ -1,6 +1,12 @@
 <%= form_with(model: material, class: "contents") do |form| %>
    <!-- Error-->
  <%= form_error_notification(material) %>
+
+<div class="my-5">
+    <%= form.label :title %>
+    <%= form.file_field :materialIcon , class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+</div>
+
 <div class="my-5">
     <%= form.label :title %>
     <%= form.text_field :title, class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>

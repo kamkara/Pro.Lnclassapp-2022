@@ -108,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_170208) do
   create_table "materials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
+    t.string "materialIcon"
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -134,6 +135,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_170208) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "full_name", null: false
+    t.string "matricule", null: false
+    t.string "contact", null: false
+    t.string "city_name"
+    t.string "media_name"
+    t.string "level_name"
+    t.string "school_name"
+    t.string "doublant"
+    t.string "user_class_status"
+    t.string "material_name"
+    t.string "user_role", null: false
+    t.string "gender"
+    t.string "slug"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

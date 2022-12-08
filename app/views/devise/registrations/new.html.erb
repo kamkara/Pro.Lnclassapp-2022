@@ -1,29 +1,108 @@
-<h2>Sign up</h2>
+<% @title="Inscription élèves" %>
+<div class="container-fluid">
+    <div class="flex flex-wrap ">
+        <div
+            class="m-auto border border-x-slate-300 ">
+            <!-- Student Sign Up Header-->
+            <%= render "devise/shared/student_sign_up_header" %>
+            <div class="px-4 md:px-302 py-8">
+                <h2 class="flex justify-center text-2xl text-white font-bold">Incription élève</h2>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <!-- Error-->
+                    <%#= form_error_notification(resource: resource) %>
+                        <div class="py-8 pb-2"> <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6">
+                                <label class="block">
+                                    <span class="text-white">Nom:
+                                    </span>
+                                    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Konan ...",class:"mt-1 block w-full" %></label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6">
+                                <label class="block">
+                                    <span class="text-white">Prénom:
+                                    </span>
+                                    <%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"ln-field" %></label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-2">
+                                <span class="text-white">Ville:</span>
+                                <%= f.select(:city_name, @citytowns.map{|citytown| [citytown.title]}, { prompt: "choisir" }, class:"ln-select ") %>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-2">
+                                <span class="text-white ">Nom établissement:
+                                </span>
+                                <%= f.text_field :school_name, placeholder:"Ex: College Moderne Saint Michel Tiassalé", class:"ln-field" %>
+                            </div>
+                        </div>
+                        <div class="py-12 max-w-md">
+                            <div class="grid grid-cols-1 gap-6">
+                                <label class="block">
+                                    <span class="text-white ">N° matricule:
+                                    </span>
+                                    <%= f.text_field :matricule, placeholder:"Ex: 13235330y", class:"ln-field" %></label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-2">
+                                <span class="text-white">Niveau ou Série:</span>
+                                <%= f.select(:level_name, @levels.map{|level| [level.title]}, { prompt: "choisir" }, class:"ln-select") %>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6">
+                                <label class="block">
+                                    <span class="text-white ">N° whatsapp
+                                    </span>
+                                    <%= f.phone_field :contact, placeholder:"Ex: 0584258085", class:"ln-field" %></label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6 pt-4">
+                                <label class="block">
+                                    <%= f.label :"Je suis :" , class:"text-white" %>
+                                    <br>
+                                    <%= f.radio_button :gender, "Femme", id:"fenale", checked: true %>
+                                    <label for="fenale" class="ln-radio pr-8">Une Femme</label>
+                                    <%= f.radio_button :gender, "Homme",id:"male" %>
+                                    <label for="male" class="ln-radio">Un Homme</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6 pt-4">
+                                <label class="block">
+                                    <%= f.label "Important: Reprends-tu la classe ?" , class:"text-white font-bold underline text-md" %>
+                                    <br>
+                                    <%= f.radio_button :user_class_status, "Doublant", id:"oui"  %>
+                                    <label for="fenale" class="ln-radio pr-8">Oui</label>
+                                    <%= f.radio_button :user_class_status, "Non-Doublant",id:"non" %>
+                                    <label for="male" class="ln-radio">Non</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="py-8 max-w-md">
+                            <div class="grid grid-cols-1 gap-6">
+                                <div class="block my-4">
+                                    <p class="text-white">
+                                        Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de clicker sur Inscription.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <%= f.hidden_field :user_role, value:"Student" %>
+                        <div class="pt-4 my-6">
+                            <%= f.submit "Envoyer l'Inscription", class:"ln-button text-white" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

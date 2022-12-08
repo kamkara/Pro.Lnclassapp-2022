@@ -1,0 +1,56 @@
+<!-- Slider Component Container -->
+<div class="flex flex-col items-center justify-center mt-32" x-cloak x-data="appData()" x-init="appInit()">
+    <div class="flex flex-col">
+        <%= render "homepage/shared/navbar" %>
+    </div>
+    <div class="flex flex-wrap w-full mx-2">
+        <div class="w-full md:w-1/4  mb-4 ">
+            <%= render "homepage/shared/materials" %>
+        </div>
+        <div class="w-full md:w-2/4  mb-4">
+            <%= render "homepage/shared/contents" %>
+        </div>
+        <div class="w-full md:w-1/4  mb-4">
+            <%= render "homepage/shared/user_profil" %>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    const appData = () => {
+
+
+
+        return {
+
+
+
+            percent: 0,
+
+            appInit() {
+
+                window.addEventListener( 'scroll', () => {
+
+
+
+                    let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+                        height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                    this.percent = Math.round( ( winScroll / height ) * 100 );
+
+
+
+                } );
+
+
+
+            }
+
+        };
+
+
+
+    };
+</script>
+
