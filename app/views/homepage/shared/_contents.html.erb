@@ -1,24 +1,25 @@
 <div class=" ">
-    <% @feed_courses.each do |fc| %>
+    <% @feed_courses.each do |feed_course| %>
+        <%= turbo_frame_tag "feed_course" do %>
         <div class="card border rounded-md m-2 bg-white">
             <div class="border p-2">
-            <div class="card-header">
-                <h1 class="font-semibold text-xl p-2">
-                    <%= fc.title %>
-                </h1>
-            </div>
-            <div class="card-body text-normal p-2">
-                <%= link_to course_path(fc)  do %>
-                   <%= truncate(strip_tags(fc.content.to_s.html_safe), length: 400) %>
-                <span class="ln-btn-color hover:ln-btn-hover-color ">Continuer la lecure</span>
-                <% end %>
-            </div>
+                <div class="card-header">
+                    <h1 class="font-semibold text-xl p-2">
+                        <%= feed_course.title %>
+                    </h1>
+                </div>
+                <div class="card-body text-normal p-2">
+                    <%= link_to course_path(feed_course)  do %>
+                    <%= truncate(strip_tags(feed_course.content.to_s.html_safe), length: 400) %>
+                    <span class="ln-btn-color hover:ln-btn-hover-color ">Continuer la lecure</span>
+                    <% end %>
+                </div>
             </div>
 
 
             <div class="flex justify-between border-t">
                 <div  class="flex ml-2 text-md font-semibold">
-                    <%= link_to course_path(fc), class:"flex"  do %>
+                    <%= link_to course_path(feed_course), class:"flex"  do %>
                         <%#= course.exercices.count %>
                         <p class="ml-4 py-2 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20px" height="20px" class="bg-white rounded-md px-1">
@@ -29,7 +30,7 @@
                     <% end %>
                 </div>
                 <div  class="flex ml-2 text-md font-semibold">
-                    <%= link_to course_path(fc), class:"flex"  do %>
+                    <%= link_to course_path(feed_course), class:"flex"  do %>
                         <%#= course.exercices.count %>
                         <p class="ml-4 py-2 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20" class="bg-white rounded-md px-1">
@@ -41,5 +42,6 @@
                 </div>
             </div>
         </div>   
+        <% end %>
     <% end %>
 </div>
