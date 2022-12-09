@@ -7,12 +7,12 @@
 @layer components {
   /* Button*/
     .ln-btn-color {
-      @apply bg-blue-600 py-1 px-2 rounded-full;
+      @apply bg-blue-500 py-1 px-2 rounded-full text-white;
     }
   
     /*Logo decor */
     .ln-logo-decor {
-      @apply underline decoration-sky-500 decoration-dashed;
+      @apply decoration-sky-400;
     }
   
     /* Form sign in */

@@ -1,6 +1,7 @@
 <div class=" ">
     <% @feed_courses.each do |fc| %>
-        <div class="card border rounded-md m-2">
+        <div class="card border rounded-md m-2 bg-white">
+            <div class="border p-2">
             <div class="card-header">
                 <h1 class="font-semibold text-xl p-2">
                     <%= fc.title %>
@@ -11,6 +12,7 @@
                    <%= truncate(strip_tags(fc.content.to_s.html_safe), length: 400) %>
                 <span class="ln-btn-color hover:ln-btn-hover-color ">Continuer la lecure</span>
                 <% end %>
+            </div>
             </div>
 
 
