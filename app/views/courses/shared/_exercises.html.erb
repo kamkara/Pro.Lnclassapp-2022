@@ -1,9 +1,9 @@
 <!-- Exercices feed -->
 <% if @course.exercises.empty? %>
-    <div class="">
-        
+    <div class="h-24">
+        Vous n'avez pas encore ajouter d'exrcice
         <%= link_to 'Nouvel Exercice', new_course_exercise_path(@course) ,
-        class:"ml-4 bg-blue-500 rounded-full px-2 ", data:{turbo_frame: "Add_new_exercise"} %>
+        class:"ml-4 bg-blue-500 rounded-full px-2 ", data:{turbo_frame: "add_new_exercise_form"} %>
     </div>
 <% else %>
     <!-- Exercices feed loop -->

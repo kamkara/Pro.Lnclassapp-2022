@@ -22,6 +22,7 @@
                 <span class="badge badge-xs"></span>
               </label>
               <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li><%= link_to 'Nouvel Exercice', new_course_exercise_path(@course), data: {turbo_frame: "add_new_exercise_form"}%></li>
                 <li><%= link_to 'Modifier', edit_course_path(@course) %></li>
                 <li><%= button_to 'Supprimer', course_path(@course), method: :delete %></li>
               </ul>
@@ -32,9 +33,6 @@
 
         <!-- Exercises Feed-->
         <div class="border bg-white m-2">
-      <%= turbo_frame_tag "Add_new_exercise" do %>
-        <%= link_to 'New Exercise', new_course_exercise_path(@course), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <% end %>
           <%= render "courses/shared/exercises", course:@course %>
         </div>
       </div>
