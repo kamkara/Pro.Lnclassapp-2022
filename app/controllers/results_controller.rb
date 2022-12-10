@@ -32,10 +32,10 @@ before_action :authenticate_user!
     respond_to do |format|
       if @result.update(result_params)
         format.html { redirect_to result_url(@result), notice: "Result was successfully updated." }
-        format.json { render :show, status: :ok, location: @result }
+    
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -46,7 +46,7 @@ before_action :authenticate_user!
 
     respond_to do |format|
       format.html { redirect_to results_url, notice: "Result was successfully destroyed." }
-      format.json { head :no_content }
+      
     end
   end
 
