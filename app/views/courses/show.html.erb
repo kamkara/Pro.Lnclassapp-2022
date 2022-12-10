@@ -12,9 +12,9 @@
           <div class="">
             <%= @course.content %>
           </div>
-
           <!-- Options-->
-          <div class="flex justify-end my-4 mx-4">
+          <div class="flex m-4 justify-between">
+            <!-- Course Options-->
             <div class="dropdown dropdown-hover">
               <label tabindex="0" class=" m-1 bg-gray-100 p-1 rounded-full">
                 <span class="badge badge-xs"></span>
@@ -22,18 +22,35 @@
                 <span class="badge badge-xs"></span>
               </label>
               <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><%= link_to 'Nouvel Exercice', new_course_exercise_path(@course), data: {turbo_frame: "add_new_exercise_form"}%></li>
+                <li>
+                
+                </li>
                 <li><%= link_to 'Modifier', edit_course_path(@course) %></li>
                 <li><%= button_to 'Supprimer', course_path(@course), method: :delete %></li>
               </ul>
             </div>
-
+            <!-- New Exercise Form-->
+            <div class="flex">
+              <%= turbo_frame_tag :add_exercise_form  do %>
+                <%= link_to 'Nouvel Exercice', new_course_exercise_path(@course), class:"bg-gray-200 py-3 px-4 " %>
+              <%end %>
+            </div>
           </div>
+
+            <%= turbo_frame_tag :add_exercise_form %>
+
         </div>
 
         <!-- Exercises Feed-->
         <div class="border bg-white m-2">
-          <%= render "courses/shared/exercises", course:@course %>
+        
+        <!-- Exercises New Form-->
+          <%= turbo_frame_tag dom_id(Exercise.new) %>
+
+        <!-- Exercises feed-->
+          <%= turbo_frame_tag "feed_exercise" do %>
+            <%= render "courses/shared/exercises", course:@course %>
+          <% end %>
         </div>
       </div>
 
