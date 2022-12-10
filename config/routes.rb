@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
   
+  ############ Courses  ###############
+  resources :courses, only:[:show] do
+    resources :exercises, only:[:new, :create, :destroy, :edit, :update]
+  end
   
   ############ Exercises  ###############
   resources :exercises, only:[:show, :index] do
@@ -8,10 +12,6 @@ Rails.application.routes.draw do
   end
 
 
-  ############ Courses  ###############
-  resources :courses, only:[:show] do
-    resources :exercises, only:[:new, :create, :destroy, :edit, :update]
-  end
 
   get "feed", to:"courses#index"
   get "show-course", to:"courses#show"
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :schools, except:[:new]
   resources :materials, except:[:new]
   resources :levels, except:[:new]
+  resources :results, except:[:new, :create]
   
   
 

@@ -9,7 +9,7 @@
     <!-- Exercices feed loop -->
     <% @course.exercises.feed_exercise.each do |exercise| %>
         <div class="border rounded-b-md m-2">
-            <%= turbo_frame_tag "Add_new_exercise" do %>
+            <%= turbo_frame_tag exercise.title do %>
                 <!-- Exercices Modal box -->
                 <label for="<%= exercise.title %>">
                     <div class="bg-gray-200 p-2">

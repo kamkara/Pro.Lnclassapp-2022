@@ -26,18 +26,18 @@
 
     <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD' class="my-5  border py-4">
         <template data-nested-form-target='template'>
-            <%#= form.fields_for :questions, Question.new, child_index: 'QUESTION_RECORD' do |question| %>
-                <%#= render 'question_fields', form: question %>
-            <%# end %>
+            <%= form.fields_for :questions, Question.new, child_index: 'QUESTION_RECORD' do |question| %>
+                <%= render 'question_fields', form: question %>
+            <% end %>
         </template>
 
-        <%#= form.fields_for :questions do |question| %>
-            <%#= render 'question_fields', form: question %>
-        <%# end %>
+        <%= form.fields_for :questions do |question| %>
+            <%= render 'question_fields', form: question %>
+        <% end %>
 
         <!-- Add Question button-->
         <div data-nested-form-target="add_item" class="ml-4">
-            <%#= link_to "Question", "#", data: { action: "nested-form#add_association" },
+            <%= link_to "Question", "#", data: { action: "nested-form#add_association" },
         class:"Add-item-exercise bg-blue-600 p-2 text-white " %>
         </div>
     </div>

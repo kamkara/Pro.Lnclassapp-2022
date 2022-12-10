@@ -1,0 +1,6 @@
+<%= turbo_frame_tag @result.exercise.title do %>
+  <!-- Exercices Detail -->
+  <%= @result.exercise.title %>
+  <%= render "form", result: @result %>
+<% end %>
+

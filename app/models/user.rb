@@ -30,10 +30,8 @@ class User < ApplicationRecord
   has_many :schools, class_name: "School", foreign_key: "user_id", dependent: :destroy
   has_many :citytowns, class_name: "Citytown", foreign_key: "user_id", dependent: :destroy
   has_many :courses, class_name: "Course", foreign_key: "user_id", dependent: :destroy
-  has_many :exercises, class_name: "Exercice", foreign_key: "user_id", dependent: :destroy
-  has_many :questions, class_name: "Question", foreign_key: "user_id", dependent: :destroy
-  has_many :flashes, class_name: "Flash", foreign_key: "user_id", dependent: :destroy
-  has_many :anwsers, class_name: "Anwser", foreign_key: "user_id", dependent: :destroy
+  has_many :exercises, class_name: "Exercise", foreign_key: "user_id", dependent: :destroy
+  has_many :result, class_name: "Result", foreign_key: "user_id", dependent: :destroy
             
   
   #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
