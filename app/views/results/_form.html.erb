@@ -1,11 +1,22 @@
-<%= form_for(@result, url: exercise_results_path(@result.exercise)) do |f| %><%#= render 'shared/validation_errors', :record => @result %>
-<%= f.hidden_field :exercise_id %> < ol class = "text-black" > <%= f.fields_for :answered_questions do |aq| %> < li > <%= aq.hidden_field :question_id %> < div class = "border bg-gray-200 p-2 text-black" > <%= aq.object.question.name %> < /div>
+<%= form_for(@result, url: exercise_results_path(@result.exercise)) do |f| %>
+    <%#= render 'shared/validation_errors', :record => @result %>
+    <%= f.hidden_field :exercise_id %> 
+    <ol class = "text-black" >
+        <%= f.fields_for :answered_questions do |aq| %>
+            <li> 
+                <%= aq.hidden_field :question_id %> 
+                <div class = "border bg-gray-200 p-2 text-black"> 
+                    <%= aq.object.question.name %> 
+                </div>
                 <%= aq.collection_radio_buttons( :answer_id, aq.object.question.answers, :id, :name) do |b| %>
                     <div class="border p-2 my-2">
                         <%= b.radio_button %>
                         <%= b.label %>
-                    </div > <% end %> < /li>
+                    </div >
+                <% end %> 
+            </li>
         <% end %>
-    </ol > <%= f.submit "Vérifions l'exercice", class:" bg-blue-600 p-2 text-white font-semibold" %>
+    </ol> 
+    <%= f.submit "Vérifions l'exercice", class:" bg-blue-600 p-2 text-white font-semibold" %>
 <% end %>
 
