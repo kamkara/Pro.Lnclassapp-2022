@@ -5,7 +5,9 @@
 
 
 @layer components {
-
+    .ln-navbar-items {
+      @apply cursor-pointer transition-colors duration-300 font-semibold text-blue-600 px-4 py-2;
+    }
   .ln-feature-course {
     @apply text-slate-800  text-sm bg-white border-slate-200 rounded-l-lg font-medium px-4 py-2 inline-flex space-x-1 items-center;
   }

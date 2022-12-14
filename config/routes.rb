@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "navbar", to:'navigation#index'
   
   
   ############ Courses  ###############

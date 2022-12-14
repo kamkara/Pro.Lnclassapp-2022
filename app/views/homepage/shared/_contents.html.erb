@@ -9,9 +9,9 @@
                     </h1>
                 </div>
                 <div class="card-body text-normal p-2">
-                    <%= link_to course_path(feed_course)  do %>
+                    <%= link_to course_path(feed_course) do %>
                     <%= truncate(strip_tags(feed_course.content.to_s.html_safe), length: 400) %>
-                    <span class="ln-btn-color hover:ln-btn-hover-color ">
+                    <span class="font-bold bg-gray-200 px-2 py-1 rounded-full ">
 
                     Voir plus</span>
                     <% end %>
@@ -21,12 +21,11 @@
             <div class="flex justify-between border-t">
                 <div  class="flex ml-2 text-md font-semibold">
                     <%= link_to course_path(feed_course), class:"flex"  do %>
-                        <%#= course.exercices.count %>
                         <p class="ml-4 py-2 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20px" height="20px" class="bg-white rounded-md px-1">
                                 <path d="M22.5,95c-3.584,0-6.5-2.916-6.5-6.5v-73c0-3.584,2.916-6.5,6.5-6.5h41c1.78,0,2.278,1.707,3.5,3	l19.219,18.03C87.366,31.239,88,32.828,88,34.5v54c0,3.584-2.916,6.5-6.5,6.5H22.5z" opacity=".35"/><path fill="#f2f2f2" d="M20.5,93c-3.584,0-6.5-2.916-6.5-6.5v-73C14,9.916,16.916,7,20.5,7h41	c1.78,0,3.502,0.742,4.724,2.035L84.219,28.03C85.366,29.239,86,30.828,86,32.5v54c0,3.584-2.916,6.5-6.5,6.5H20.5z"/><path fill="#d9eeff" d="M20,87V13h40l20,21v53H20z"/><path fill="#40396e" d="M61,15v16c0,1.105,0.895,2,2,2h16l-1-2.653l-15-15.5L61,15z"/><polygon fill="none" stroke="#40396e" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" points="20.5,13.5 61.5,13.5 79.5,32.5 79.5,86.5 20.5,86.5"/><path fill="#70bfff" d="M66.5,48h-17c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h17	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,47.328,67.328,48,66.5,48z"/><path fill="#70bfff" d="M66.5,57h-33c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h33	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,56.328,67.328,57,66.5,57z"/><path fill="#70bfff" d="M66.5,75h-33c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h33	c0.828,0,1.5,0.672,1.5,1.5l0,0C68,74.328,67.328,75,66.5,75z"/><path fill="#70bfff" d="M50.5,66h-17c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h17	c0.828,0,1.5,0.672,1.5,1.5l0,0C52,65.328,51.328,66,50.5,66z"/><path fill="#70bfff" d="M66.5,66h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C68,65.328,67.328,66,66.5,66z"/><path fill="#70bfff" d="M41.5,48h-8c-0.828,0-1.5-0.672-1.5-1.5l0,0c0-0.828,0.672-1.5,1.5-1.5h8c0.828,0,1.5,0.672,1.5,1.5	l0,0C43,47.328,42.328,48,41.5,48z"/>
                             </svg>
-                            <span class=" ml-2">Exercices </span>
+                            <span class=" ml-2"><%#= feed_course.exercises.count %> Exercices </span>
                         </p>
                     <% end %>
                 </div>
