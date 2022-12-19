@@ -24,7 +24,10 @@ gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 #gem 'unicorn', '~> 6.1', :group => :production
 #gem "aws-sdk-s3", require: false
 
-
+############### Deploy    ############
+gem 'platform_sh_rails'
+gem 'unicorn', '~> 6.1', :group => :production
+#gem "aws-sdk-s3", require: false
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
