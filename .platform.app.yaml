@@ -14,10 +14,17 @@ type: 'ruby:3.0'
 # indicates that the mount point will point to a local directory on the
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
+    "/log":
+        source: local
+        source_path: log
+    "/storage":
+        source: local
+        source_path: storage
+    "/tmp":
+        source: local
+        source_path: tmp
 
 # The size of the persistent disk of the application (in MB).
 disk: 1024
@@ -36,6 +43,7 @@ hooks:
       bundle install
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
+
 
 web:
     upstream:
