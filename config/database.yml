@@ -93,10 +93,11 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database_url: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
+  database_url: <%= ENV['LNCLASSAPP_DATABASE_URL'] %>
   database_name: <%= ENV['LNCLASSAPP_DATABASE_NAME'] %>
   database_username: <%= ENV['LNCLASSAPP_DATABASE_USERNAME'] %>
   database_password: <%= ENV['LNCLASSAPP_DATABASE_PASSWORD'] %>
   host: <%= ENV['LNCLASSAPP_DATABASE_HOST'] %>
   port: <%= ENV['LNCLASSAPP_DATABASE_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
