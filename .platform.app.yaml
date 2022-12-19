@@ -33,7 +33,7 @@ relationships:
 
 hooks:
     build: |
-      bundle install --without development test
+      bundle install
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
 
