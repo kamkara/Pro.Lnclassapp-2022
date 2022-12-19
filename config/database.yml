@@ -84,7 +84,7 @@ test:
 #
 production:
   <<: *default
+  url: postgresdatabase.internal #<%= ENV["PRO_LNCLASSAPP_DATABASE_DATABASE_URL"] %>
   database: Pro_Lnclassapp_production
   username: Pro_Lnclassapp
-  password: <%= ENV["PRO_LNCLASSAPP_DATABASE_PASSWORD"] %>
-  url: <%= ENV["PRO_LNCLASSAPP_DATABASE_DATABASE_URL"] %>
+  password: 39_148-e1787e4a020è4e31c2006b6&170c0&&48d_efba34 #<%= ENV["PRO_LNCLASSAPP_DATABASE_PASSWORD"] %>
