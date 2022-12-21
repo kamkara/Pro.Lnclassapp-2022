@@ -49,7 +49,7 @@ mounts:
 hooks:
     # The build hook turns what is in source control into the deployable application.
     build: |
-      bundle install --without development test
+      bundle install
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
