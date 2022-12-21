@@ -1,7 +1,7 @@
 # The name of this app. Must be unique within a project.
 name: "lnclassapp"
 # The runtime the application uses.
-type: "ruby:3.0"
+type: "ruby:3.0.3"
 dependencies:
     nodejs:
         yarn: "*"
