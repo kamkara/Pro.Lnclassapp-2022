@@ -7,7 +7,7 @@ dependencies:
         yarn: "*"
 
 relationships:
-    database: 'db:postgresql'
+    postgresdatabase: 'dbpostgres:postgresql'
 
 disk: 1024
 
