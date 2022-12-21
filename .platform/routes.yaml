@@ -2,7 +2,7 @@
 
 "https://{default}/":
     type: upstream
-    upstream: "pro.lnclassapp:http"
+    upstream: "pro_lnclassapp:http"
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
