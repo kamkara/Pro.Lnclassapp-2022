@@ -1,5 +1,5 @@
 # The name of this app. Must be unique within a project.
-name: "pro.Lnclassapp"
+name: "pro.lnclassapp"
 # The runtime the application uses.
 
 type: 'ruby:3.0'
