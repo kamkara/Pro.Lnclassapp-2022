@@ -2,7 +2,7 @@
 name: "app"
 # The runtime the application uses.
 
-type: 'ruby:3.0'
+type: 'ruby:3.1'
 
 dependencies:
     nodejs:
@@ -21,7 +21,7 @@ variables:
         BUNDLE_DEPLOYMENT: '1'
         BUNDLE_ERROR_ON_STDERR: '1'
         BUNDLE_WITHOUT: 'development:test'
-        DEFAULT_BUNDLER_VERSION: "2.2.26" # in case none is mentioned in Gemfile.lock
+        DEFAULT_BUNDLER_VERSION: "2.3.25" # in case none is mentioned in Gemfile.lock
         EXECJS_RUNTIME: 'Node'
         NODE_ENV: 'production'
         NODE_VERSION: v14.17.6
