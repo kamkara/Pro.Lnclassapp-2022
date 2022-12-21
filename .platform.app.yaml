@@ -8,9 +8,11 @@ dependencies:
     nodejs:
         yarn: "*"
 
+
 relationships:
     postgresdatabase: 'dbpostgres:postgresql'
-    disk: 2048
+    
+disk: 2048
 
 # Set environment variables to adjust how Rails will run.
 variables:
@@ -47,10 +49,10 @@ mounts:
 hooks:
     # The build hook turns what is in source control into the deployable application.
     build: |
-        
+      bundle install --without development test
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
-        bundle exec rails db:migrate
+      RACK_ENV=production bundle exec rake db:migrate
 
 
 # The configuration of the application when running.
