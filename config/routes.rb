@@ -65,8 +65,8 @@ Rails.application.routes.draw do
 
 
   ###### Errors #############
-  get '/404', to: 'errors#not_found'
-  get '/500', to: 'errors#internal_server'
-  get '/422', to: 'errors#unprocessable'
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
 
 end

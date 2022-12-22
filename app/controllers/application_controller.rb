@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
+    
+    # Include Pagy
+    include Pagy::Backend
+
     before_action  :set_city,
                     :set_material,
                     :set_level,
