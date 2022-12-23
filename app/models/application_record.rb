@@ -6,6 +6,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   scope :ordered, -> { order('created_at desc')}
   scope :feed, -> {where("status= ?", "Lune")}
+  scope :feed_exercise, -> {where("status= ?", "Lune")}
 
   #refactory order items
   scope :student, -> { where("status = ?", "Student").order("created_at desc")}

@@ -143,6 +143,7 @@ GEM
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (6.0.0)
     pg (1.4.5)
     platform_sh (0.2.11)
     platform_sh_rails (0.1.12)
@@ -251,6 +252,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  pagy (~> 6.0)
   pg (~> 1.1)
   platform_sh_rails
   puma (~> 5.0)

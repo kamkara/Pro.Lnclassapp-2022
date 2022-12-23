@@ -1,5 +1,9 @@
 module ApplicationHelper
+  
+  # Include it in the helpers
+  include Pagy::Frontend
 
+  
     #Onglet Title
     def title
         base_title = "Lnclass Education"
