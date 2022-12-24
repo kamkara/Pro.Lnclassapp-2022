@@ -29,7 +29,7 @@ class ExercisesController < ApplicationController
     if @exercise.save
       respond_to do |format|
         format.html { redirect_to root_path, notice: "Exercise was successfully created." }
-        format.turbo_stream
+        #format.turbo_stream
       end
       else
         render :new, status: :unprocessable_entity
