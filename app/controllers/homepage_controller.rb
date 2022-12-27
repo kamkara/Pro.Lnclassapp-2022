@@ -4,7 +4,7 @@ class HomepageController < ApplicationController
     if user_signed_in?
       @feed_materials = Material.all
     
-      @pagy, @feed_courses = pagy_countless(Course.order(created: :desc), items: 5 )
+      @pagy, @feed_courses = pagy_countless(Course.order(created_at: :desc), items: 5 )
       render "scrollable_list" if params[:page]
 
       @pagy, @feed_exercises = pagy_countless(@feed_courses.exercise, items: 2 )
