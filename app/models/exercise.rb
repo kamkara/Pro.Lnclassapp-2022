@@ -14,7 +14,7 @@ class Exercise < ApplicationRecord
 
 
   ########## SCOPES  #############
-  scope :feed_exercise, -> { order(created_at: :desc)}
+  scope :feed_exercise, -> {order(created_at: :desc).limit(2)}
   
   
   ########### completed exercice  #########
