@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, 
         :trackable, :authentication_keys => [:logged]
   attr_writer :logged
-
+  has_one :avatar
   ################## LOGGED  #########
   #permet la connexion avec le matricule
   def logged
