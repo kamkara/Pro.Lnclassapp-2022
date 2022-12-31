@@ -28,11 +28,12 @@
                                     <%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"ln-field" %></label>
                             </div>
                         </div>
+                        
                         <div class="py-2 max-w-md">
                             <div class="grid grid-cols-1 gap-2">
-                                <span class="">Ville:</span>
-                                <%= f.select(:city_name, @citytowns.map{|citytown| [citytown.title]}, { prompt: "choisir" }, class:"ln-select border border-black") %>
-
+                                <span class="">Ville:
+                                </span>
+                                <%= f.text_field :city_name, placeholder:"Ex: Abidjan", class:"ln-field" %>
                             </div>
                         </div>
                         <div class="py-2 max-w-md">
@@ -52,7 +53,7 @@
                         </div>
                         <div class="py-4 max-w-md">
                             <div class="grid grid-cols-1 gap-2">
-                                <span class="">Niveau ou Série:</span>
+                                <span class="">Série:</span>
                                 <%= f.select(:level_name, @levels.map{|level| [level.title]}, { prompt: "choisir" }, class:"ln-select border border-black") %>
                             </div>
                         </div>

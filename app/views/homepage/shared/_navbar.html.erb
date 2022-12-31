@@ -23,10 +23,10 @@
             <%= link_to root_path, class:"px-4 py-2 font-semibold " do %>Accueil<% end %>
             <%= link_to root_path, class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Devoirs<% end %>
             <%= link_to root_path, class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Sujets Bacs<% end %>
-            <%= link_to root_path, class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Gagner<% end %>
+            <% link_to root_path, class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Gagner<% end %>
             <%= link_to root_path, class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Abonnement<% end %>
-            
             <% if current_user_status == "team"%>
+            
                 <%= link_to "dashboard", class:"ln-navbar-items hover:text-blue-500 hover:bg-gray-50" do %>Dashboard<% end %>
             <% end %>
             <!-- Dropdown  -->
