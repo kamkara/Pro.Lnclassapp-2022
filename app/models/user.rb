@@ -37,9 +37,12 @@ class User < ApplicationRecord
   #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
   
   ################## VALIDATES  ###############
+  before_validation do
+    self.contact            = contact.strip.squeeze(" ")
+    self.matricule         = matricule.strip.squeeze(" ").downcase
+  end
   before_validation :user_validations?,  on: :create
   before_validation :full_name
-   
   
    validates :first_name, :last_name, :full_name, :email, :password,
               :contact, :user_role, :city_name, presence: true
