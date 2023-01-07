@@ -13,6 +13,6 @@ class ApplicationRecord < ActiveRecord::Base
   scope :select_level, -> { where("level = ?", current_user.level_name)}
   scope :daily_sign_up, -> { where("created_at >= ?", Time.zone.now.beginning_of_day)}
   scope :allOrderDesc, -> { all.order('created_at desc')}
-  scope :orderDesc, -> { order('created_at desc')}
+  scope :orderAsc, -> { order('created_at asc')}
 
 end
