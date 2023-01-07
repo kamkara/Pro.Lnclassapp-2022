@@ -32,10 +32,9 @@
                         <% end %>
                     <% end %>
                 </div>
+                <!-- Whatsapp Sharing -->
 
-            <!-- Whatsapp Sharing -->
-
-                                    <!-- Exercise correction Count -->
+                <!-- Exercise correction Count -->
                 <div  class="flex ml-2 text-md font-semibold">
                     <%= turbo_frame_tag "feed_exercises_completed" do %>
                         <%= link_to "https://wa.me/?text= #{"*Sujet: "}#{feed_course.title}#{"*"}
