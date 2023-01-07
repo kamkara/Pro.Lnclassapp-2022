@@ -3,7 +3,7 @@ class HomepageController < ApplicationController
   def index
     if user_signed_in?
       @feed_materials = Material.all
-      @feed_courses   = Course.all
+      @feed_courses   = Course.all.orderAsc
       
     end
     #redirect_to feed_path if user_signed_in?
