@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
         :trackable, :authentication_keys => [:logged]
+
+
   attr_writer :logged
-  has_one :avatar
+  
   ################## LOGGED  #########
   #permet la connexion avec le matricule
   def logged
@@ -32,15 +34,17 @@ class User < ApplicationRecord
   has_many :courses, class_name: "Course", foreign_key: "user_id", dependent: :destroy
   has_many :exercises, class_name: "Exercise", foreign_key: "user_id", dependent: :destroy
   has_many :result, class_name: "Result", foreign_key: "user_id", dependent: :destroy
-            
+  has_one :avatar
+  
   
   #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
   
   ################## VALIDATES  ###############
-  before_validation do
-    self.contact            = contact.strip.squeeze(" ")
-    self.matricule         = matricule.strip.squeeze(" ").downcase
-  end
+  #before_validation do
+  ##  self.contact            = contact.strip.squeeze(" ")
+  ##  self.matricule         = matricule.strip.squeeze(" ").downcase
+  #end
+
   before_validation :user_validations?,  on: :create
   before_validation :full_name
   
