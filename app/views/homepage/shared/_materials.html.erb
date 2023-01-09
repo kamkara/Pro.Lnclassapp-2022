@@ -1,3 +1,5 @@
+
+
 <div class="mx-4 my-2 p-2 bg-white">
     <% @feed_materials.each do |fm| %>
         <ul class="font-bold my-2 flex">
@@ -9,10 +11,12 @@
                         <%# end %>
                     </span>
                     <span class="mt-2">
-                        <%= fm.title %>
+                        <%= link_to fm.title, fm, class:"no-underline font-semibold text-black" %>
                     </span>
                 </p>
             </il>
         </ul>
     <% end %>
 </div>
+
+

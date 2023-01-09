@@ -2,9 +2,8 @@ class HomepageController < ApplicationController
   
   def index
     if user_signed_in?
-      @feed_materials = Material.all
-      @feed_courses   = Course.all.feed_order
-      
+      @feed_materials = Material.all.order_desc
+      @feed_courses   = Course.all.order_desc
     end 
     #redirect_to feed_path if user_signed_in?
     #redirect_to feed_path if user_signed_in? && set_home_feed == "feed"
