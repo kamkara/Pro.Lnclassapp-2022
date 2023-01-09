@@ -1,13 +1,14 @@
 
-<div class="p-20 h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center bg-gray-200">
+<div class="p-20 h-screen w-full flex flex-col md:flex-row items-center justify-center bg-gray-200">
     <!-- Lnclass Main Message-->
     <div class="w-1/2 md:w-full content text-3xl text-center md:text-left">
         <h1 class="text-5xl text-blue-500 font-bold">Lnclass Education</h1>
-        <p>Prépare ton examen, dévoir, intérrogation sur Lnclass Education.</p>
+        <p>Prépare ton examen, dévoirs, intérrogations sur Lnclass Education.</p>
+        <br>
     </div>
 
                 <!-- Lnclass Sign In form -->
-<div class="w-1/2 md:w-full container mx-auto flex flex-col items-center">
+    <div class="w-1/2 md:w-full container mx-auto flex flex-col items-center">
 
         <div class=" w-80 p-4 flex flex-col bg-white rounded-lg">
         <p class="flex mx-auto my-2 font-semibold"> Connexion </p>
@@ -16,8 +17,8 @@
                 <%#= form_error_notification(resource: resource) %>
                 <%= render "devise/shared/error_messages", resource: resource %>
 
-                <%= f.text_field :logged, placeholder:"N° Matricule ou Email", class:"mb-3 py-3 px-4 border border-blue-400 focus:border-500" %>
-                <%= f.password_field :password , placeholder:"N° tel ou mot de passe", class:"mb-3 py-3 px-4 border border-blue-400 focus:border-500" %>
+                <%= f.text_field :logged, placeholder:"N° Matricule ou Email", class:"mb-5 py-3 mb-2 px-4 border border-blue-400 focus:border-500" %>
+                <%= f.password_field :password , placeholder:"N° tel ou mot de passe", class:"my-3 py-3 px-4 border border-blue-400 focus:border-500" %>
 
                 <% if devise_mapping.rememberable? %>
                     <%= f.check_box :remember_me, class:"checkbox" %>
@@ -37,10 +38,10 @@
         <p class="text-center text-sm my-4">
             <span class="font-semibold text-center w-full">Créer compte :
             </span>
-            <%= link_to 'Enseignant', "teacher-sign-up", class:"underline",
+            <%= link_to 'Enseignant', "teacher-sign-up", class:"underline font-semibold",
              data:{turbo_frame:"sign-Up-Form"}%>
             ou
-            <%= link_to 'Ambassadeur', "ambassadeur-sign-up", class:"underline",
+            <%= link_to 'Ambassadeur', "ambassadeur-sign-up", class:"underline font-semibold",
             data:{turbo_frame:"sign-Up-Form"} %>
         </p>
     </div>
