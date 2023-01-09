@@ -1,1 +1,3 @@
-<%= render "homepage/shared/feed" %>
+<%= turbo_frame_tag "material_feed" do %>
+    <%= render "homepage/shared/feed" %>
+<% end %>
