@@ -1,104 +1,100 @@
 <% @title="Inscription élèves" %>
 <%= turbo_frame_tag "student_sign_up_form" do %>
 
-<div class="container-fluid">
-    <div class="flex flex-wrap ">
-        <div
-            class="m-auto border border-x-slate-300 bg-white ">
-            <!-- Student Sign Up Header-->
-            <%= render "devise/shared/sign_header" %>
-            <div class="px-4 md:px-302 py-8">
-                <h2 class="flex justify-center text-2xl font-bold">Bienvenu(e) sur la page d'incription Pour élève</h2>
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                    <%= render "devise/shared/error_messages", resource: resource %>
-                    <!-- Error-->
-                    <%#= form_error_notification(resource: resource) %>
-                        <div class="py-2 pb-2">
-                            <div class="py-8 max-w-md">
-                            <div class="grid grid-cols-1 gap-6">
-                                <label class="block">
-                                    <span class="">Nom:
-                                    </span>
-                                    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Konan ...",class:"mt-1 block w-full" %></label>
-                            </div>
-                        </div>
-                        <div class=" max-w-md">
-                            <div class="grid grid-cols-1 gap-6">
-                                <label class="block">
-                                    <span class="">Prénom:
-                                    </span>
-                                    <%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"ln-field" %></label>
-                            </div>
-                        </div>
-                        
-                        <div class="py-2 max-w-md">
-                            <div class="grid grid-cols-1 gap-2">
-                                <span class="">Ville:
-                                </span>
-                                <%= f.text_field :city_name, placeholder:"Ex: Abidjan", class:"ln-field" %>
-                            </div>
-                        </div>
-                        <div class="py-2 max-w-md">
-                            <div class="grid grid-cols-1 gap-2">
-                                <span class="">Nom établissement:
-                                </span>
-                                <%= f.text_field :school_name, placeholder:"Ex: College Moderne Saint Michel Tiassalé", class:"ln-field" %>
-                            </div>
-                        </div>
-                        <div class="py-6 max-w-md">
-                            <div class="grid grid-cols-1 gap-6">
-                                <label class="block">
-                                    <span class="">N° matricule:
-                                    </span>
-                                    <%= f.text_field :matricule, placeholder:"Ex: 13235330y", class:"ln-field" %></label>
-                            </div>
-                        </div>
-                        <div class="py-4 max-w-md">
-                            <div class="grid grid-cols-1 gap-2">
-                                <span class="">Série:</span>
-                                <%= f.select(:level_name, @levels.map{|level| [level.title]}, { prompt: "choisir" }, class:"ln-select border border-black") %>
-                            </div>
-                        </div>
-                        <div class="py-4 max-w-md">
-                            <div class="grid grid-cols-1 gap-6">
-                                <label class="block">
-                                    <span class="">N° whatsapp
-                                    </span>
-                                    <%= f.phone_field :contact, placeholder:"Ex: 0584258085", class:"ln-field" %></label>
-                            </div>
-                        </div>
-                        <div class="py-4 max-w-md">
-                            <div class="grid grid-cols-1 gap-6 pt-4">
-                                <label class="block">
-                                    <%= f.label :"Je suis :" , class:"" %>
-                                    <br>
-                                    <%= f.radio_button :gender, "Femme", id:"fenale", checked: true %>
-                                    <label for="fenale" class="ln-radio pr-8">Une Femme</label>
-                                    <%= f.radio_button :gender, "Homme",id:"male" %>
-                                    <label for="male" class="ln-radio">Un Homme</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="py-4 max-w-md">
-                            <div class="grid grid-cols-1 gap-6">
-                                <div class="block">
-                                    <p class="">
-                                        Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de cliquer sur <span class="font-semibold">S'Inscrire</span>.
-                                    </p>
+    <div class="container-fluid">
+        <div class="flex flex-wrap ">
+            <div class="m-auto border border-x-slate-300 bg-white ">
+                <!-- Student Sign Up Header-->
+                <%= render "devise/shared/sign_header" %>
+                <div class="px-4 md:px-302 py-8 center-items ">
+                    <h2 class="flex justify-center text-2xl font-bold">Bienvenu(e) sur la page d'incription Pour élève</h2>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
+                        <!-- Error-->
+                        <%#= form_error_notification(resource: resource) %>
+                            <div class="max-w-md py-2 pb-2"> 
+                                <div class="grid grid-cols-1 gap-6">
+                                    <label class="block">
+                                        <span class="">Nom:  </span>
+                                        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Konan ...",class:"mt-1 block w-full" %>
+                                    </label>
                                 </div>
                             </div>
-                        </div>
-                        <%= f.hidden_field :user_role, value:"Student" %>
-                        <div class="my-6">
-                            <%= f.submit "S'Inscrire", class:"ln-button text-white " %>
-                        </div>
+                            <div class=" max-w-md">
+                                <div class="grid grid-cols-1 gap-6">
+                                    <label class="block">
+                                        <span class="">Prénom: </span>
+                                        <%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"ln-field" %>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="py-2 max-w-md">
+                                <div class="grid grid-cols-1 gap-2">
+                                    <span class="">Ville:  </span>
+                                    <%= f.text_field :city_name, placeholder:"Ex: Abidjan", class:"ln-field" %>
+                                </div>
+                            </div>
+                            <div class="py-2 max-w-md">
+                                <div class="grid grid-cols-1 gap-2">
+                                    <span class="">Nom établissement: </span>
+                                    <%= f.text_field :school_name, placeholder:"Ex: College Moderne Saint Michel Tiassalé", class:"ln-field" %>
+                                </div>
+                            </div>
+                            <div class="py-6 max-w-md">
+                                <div class="grid grid-cols-1 gap-6">
+                                    <label class="block">
+                                        <span class="">N° matricule: </span>
+                                        <%= f.text_field :matricule, placeholder:"Ex: 13235330y", class:"ln-field" %>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="py-4 max-w-md">
+                                <div class="grid grid-cols-1 gap-2">
+                                    <span class="">Série:</span>
+                                    <%= f.select(:level_name, @levels.map{|level| [level.title]}, { prompt: "choisir" }, class:"ln-select border border-black") %>
+                                </div>
+                            </div>
+                            <div class="py-4 max-w-md">
+                                <div class="grid grid-cols-1 gap-6">
+                                    <label class="block">
+                                        <span class="">N° whatsapp </span>
+                                        <%= f.phone_field :contact, placeholder:"Ex: 0584258085", class:"ln-field" %>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="py-4 max-w-md">
+                                <div class="grid grid-cols-1 gap-6 pt-4">
+                                    <label class="block">
+                                        <%= f.label :"Je suis :" , class:"" %>
+                                        <br>
+                                            <%= f.radio_button :gender, "Femme", id:"fenale", checked: true %>
+                                            <label for="fenale" class="ln-radio pr-8">Une Femme</label>
+                                            <%= f.radio_button :gender, "Homme",id:"male" %>
+                                            <label for="male" class="ln-radio">Un Homme</span>
+                                    </label>
+                                    </div>
+                                </div>
+
+                                <div class="py-4 max-w-md">
+                                    <div class="grid grid-cols-1 gap-6">
+                                        <div class="block">
+                                            <p class="">
+                                                Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de cliquer sur
+                                                <span class="font-semibold">S'Inscrire</span>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%= f.hidden_field :user_role, value:"Student" %>
+                                <div class="my-6">
+                                    <%= f.submit "S'Inscrire", class:"ln-button text-white " %>
+                                </div>
+                            </div>
+                        <% end %>
                     </div>
-                <% end %>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
 <% end %>
+

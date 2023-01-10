@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+    wb.add_worksheet(name: "UserLnclass") do |sheet|
+        # Create the header row
+        sheet.add_row ["Full Name","City Name", "School Name", "Level Name", "Contact", "Matricule", "Genre"]
+        
+        # Create entries for each item
+        @StudentList.each do |item|
+            sheet.add_row [item.full_name, item.city_name, item.school_name, item.level_name, item.contact, item.matricule, item.gender]
+        end
+    end
+

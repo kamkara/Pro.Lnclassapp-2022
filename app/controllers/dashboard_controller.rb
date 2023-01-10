@@ -4,6 +4,14 @@ class DashboardController < ApplicationController
   
   def index
     @StudentList = User.all.ordered
+      respond_to do |format|
+        format.xlsx {
+          response.headers[
+            'Content-Disposition'
+          ] = "attachment; filename=UserLnclass.xlsx"
+        }
+        format.html { render :index }
+      end
   end
 
   def home
