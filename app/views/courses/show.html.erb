@@ -5,7 +5,7 @@
         <%= @course.content %>
       </div>
 
-    <% if current_user_status =="team" %>
+    <% if current_user_status =="team" || "teacher" %>
         <!-- Course Options-->
       <div class="flex m-4 justify-between">
         <div class="dropdown dropdown-hover">

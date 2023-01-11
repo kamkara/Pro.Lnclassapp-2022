@@ -29,6 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-!/app/assets/builds/tailwind.css
+
 /app/assets/builds/*
 !/app/assets/builds/.keep

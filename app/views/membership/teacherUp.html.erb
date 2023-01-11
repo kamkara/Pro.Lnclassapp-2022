@@ -1,96 +1,99 @@
-<% @title="S'Inscription Profs" %>
-<div class="container-fluid" >
+<% @title="S'Inscription Enseignan" %>
+<div class="container-fluid bg-white">
 	<div class="flex flex-wrap ">
 		<div class="m-auto border border-x-slate-300 ">
 			<%= render "membership/shared/sign_up/header" %>
 			<div class="px-4 md:px-302 py-8">
-				<h2 class="flex justify-center text-2xl text-white font-bold">Incription </h2>
+				<h2 class="flex justify-center text-2xl  font-bold">Incription Enseignant</h2>
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 				<%= render "devise/shared/error_messages", resource: resource %>
 				<!-- Error-->
 				<%#= form_error_notification(resource: resource) %>
 				<div class="py-8 pb-2">
-					<div class="py-8 max-w-md">
+					<div class="max-w-md">
 						<div class="grid grid-cols-1 gap-6">
-							<label class="block"><span class="text-white">Nom: </span><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Ex: Konan Yao ...",class:"mt-1 block w-full" %></label>
+							<label class="block"><span class="">Nom: </span><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"Ex: Konan Yao ...",class:"mt-1 block w-full" %></label>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class="py-4 max-w-md">
 						<div class="grid grid-cols-1 gap-6">
-							<label class="block"><span class="text-white">Prénom: </span><%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"mt-1 block w-full" %></label>
+							<label class="block"><span class="">Prénom: </span><%= f.text_field :last_name,  placeholder:"Ex: Angela ...", class:"mt-1 block w-full" %></label>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class=" max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white">Ville:</span>
-							<%= f.select(:city_name, @citytowns.map{|citytown| [citytown.title]}, { prompt: "Choisir" }, class:"ln-select") %>
-						</div>
+                            <span class="">Ville:</span>
+                            <%= f.text_field :city_name, placeholder:"Ex: Abidjan ..", class:"ln-field" %>
+                        </div>
 					</div>
-					<div class="py-12 max-w-md">
+					<div class="py-4 max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white ">Nom établissement: </span>
+							<span class=" ">Nom établissement: </span>
 							<%= f.text_field :school_name, placeholder:"Ex: College Moderne Saint Michel Tiassalé", class:"mt-1 block w-full" %>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class=" max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white">Discipline Enseignée:</span>
-							<%= f.select(:material_name, @materials.map{|material| [material.title]}, { prompt: "Choisir" }, class:"ln-select") %>
+							<span class="">Discipline Enseignée:</span>
+							<%= f.select(:material_name, 
+							@materials.map{|material| [material.title]}, { prompt: "Choisir" },
+							 class:"ln-select border border-black") %>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class="py-4 max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white ">N° whatsapp ou N° joingnable par appel</span>
+							<span class=" ">N° whatsapp ou N° joingnable par appel</span>
 							<%= f.phone_field :contact, placeholder:"Ex: 0584258085", class:"block w-full" %>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+
+					<div class=" max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white ">Adresse Email:</span>
+							<span class="">Adresse Email:</span>
 							<%= f.email_field :email, placeholder:"Ex: Lnclass@gmail", class:"block w-full" %>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class="py-4 max-w-md">
 						<div class="grid grid-cols-1 gap-2">
-							<span class="text-white ">Mot de passe:</span>
+							<span class="">Mot de passe:</span>
 							<%= f.password_field :password, placeholder:"Ex: ********", class:"block w-full" %>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class="max-w-md">
 						<div class="grid grid-cols-1 gap-6 pt-4">
 							<div class="block">
-								<%= f.label :"Je suis :" , class:"text-white" %>
+								<%= f.label :"Je suis :" , class:"" %>
 								<br>
-								<%= f.radio_button :gender, "Femme", id:"fenale", class:"bg-white font-bold" , checked: true %>
-								<label for="fenale" class="text-bold text-white">Une Femme</label>
-								<%= f.radio_button :gender, "Homme",id:"male", class:"bg-white font-bold pl-4" %>
-								<label for="male" class="text-bold text-white">Un Homme</span>
+								<%= f.radio_button :gender, "Femme", id:"fenale", class:"font-bold" , checked: true %>
+								<label for="fenale" class="text-bold ">Une Femme</label>
+								<%= f.radio_button :gender, "Homme",id:"male", class:"ont-bold pl-4" %>
+								<label for="male" class="text-bold ">Un Homme</span>
 							</div>
 						</div>
 					</div>
-					<div class="py-8 max-w-md">
+					<div class="py-4 max-w-md">
 						<div class="grid grid-cols-1 gap-6 py-4">
 							<div class="block">
-								<%= f.label :"Important: Savez-vous utilier un Ordinateur ?" , class:"font-bold underline text-white" %>
+								<%= f.label :"Important: Savez-vous utilier un Ordinateur ?" , class:"font-bold underline " %>
 								<br>
-								<%= f.radio_button :doublant, "Non", id:"non", class:"bg-white font-bold", checked: true %>
-								<label for="non" class="text-bold text-white">Non</label>
-								<%= f.radio_button :doublant, "Non",id:"non", class:"bg-white font-bold pl-4" %>
-								<label for="Oui" class="text-bold text-white">Oui</span>
+								<%= f.radio_button :doublant, "Non", id:"non", class:" font-bold", checked: true %>
+								<label for="non" class="text-bold ">Non</label>
+								<%= f.radio_button :doublant, "Non",id:"non", class:" font-bold pl-4" %>
+								<label for="Oui" class="text-bold ">Oui</span>
 								<divl></div>
 							</div>
-							<div class="py-8 max-w-md">
+							<div class=" max-w-md">
 								<div class="grid grid-cols-1 gap-6">
 									<div class="block my-4">
-										<p class="text-white">
-											Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de clicker sur Inscription. 
+										<p class="">
+											Vérifiez que vous avez bien remplir les champs avec les bonnes informations avant de cliquer sur Inscription. 
 										</p>
 									</div>
 								</div>
 							</div>
 							<%= f.hidden_field :user_role, value:"Teacher" %>
 							<div class="pt-4 my-6">
-								<%= f.submit "Inscription Professeur", class:"ln-button" %>
+								<%= f.submit "Inscription Enseignant", class:"ln-button text-white" %>
 							</div>
 						</div>
 						<% end %>

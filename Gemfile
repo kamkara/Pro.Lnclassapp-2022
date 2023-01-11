@@ -103,3 +103,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "caxlsx_rails", "~> 0.6.3"
+
+gem "caxlsx", "~> 3.3"
