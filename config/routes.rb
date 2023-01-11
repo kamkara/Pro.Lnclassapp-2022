@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get "team-sign-in" , to:'membership#teamIn'
   
   devise_scope :user do
+    get 'user-profil', to: 'devise/registrations#edit'
     get 'student-sign-in', to: 'devise/sessions#new'
     get 'student-sign-up', to: 'devise/registrations#new', as: "new_user_registration"
     delete 'deconnecter',  to: "devise/sessions#destroy", as: "destroy_user_session_path"
