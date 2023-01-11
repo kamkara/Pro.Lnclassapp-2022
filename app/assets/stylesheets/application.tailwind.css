@@ -47,7 +47,7 @@
   
   
     .ln-button {
-      @apply bg-blue-600 font-bold p-3 px-6 rounded-full mt-2;
+      @apply bg-blue-600 font-bold p-3 px-6  mt-2;
     }
   
     .msg-notice {
