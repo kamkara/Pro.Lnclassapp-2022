@@ -41,6 +41,7 @@ class User < ApplicationRecord
     if self.user_role == "Student"
       self.matricule = matricule.gsub(/\s+/, "")
       self.email = "#{self.matricule}@gmail.com"
+      self.school_name = school_name.strip.downcase.capitalize
       self.password = "#{self.contact}"
     else 
       self.matricule = "#{self.contact}T"
@@ -75,6 +76,8 @@ class User < ApplicationRecord
     self.contact            = contact.strip.squeeze("")
     self.first_name         = first_name.strip.squeeze("").downcase.capitalize
     self.last_name          = last_name.strip.squeeze("").downcase.capitalize
+    self.city_name          = city_name.strip.downcase.capitalize
+    self.matricule          = matricule.strip.downcase
   end
 
 
